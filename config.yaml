@@ -1,0 +1,9 @@
+batch_size: 1
+class_path: data/coco.names
+conf_thres: 0.8
+image_folder: data/samples
+img_size: 416
+model_def: config/yolov3.cfg
+n_cpu: 0
+nms_thres: 0.4
+weights_path: weights/yolov3.weights
