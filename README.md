@@ -36,13 +36,33 @@ Yolo 算是目前比较工程使用最多的算法之一了，无论是理解还
 
 论文的链接：https://arxiv.org/abs/1804.02767
 
-Yolo 的推断时间，可以看下图，超越现有算法很多。
+Yolo v3 的推断时间，可以看下图，超越现有算法很多。
 
 ![](data/yolo_inference_time.png)
 
 Yolo v3 的backbone使用自己的darknet53，实现上也很简洁，参考了Resnet的结构。
 
 ![](data/yolo_backbone.png)
+
+yolo v3 的整体结构( by Levio)：
+
+![图片如下](imgs/yolov3_full.jpeg)
+
+yolo的输入尺寸为416x416，下采样5次，416/32=13，特征图为13x13.
+
+加上中间层的直接输出，共3个尺度的信息13x13，26x26，52x52。目的是保证小尺寸目标的检测效果。
+
+输出为（4+1+80）x3 x 13 x 13   （4+1+80）x3 x 26 x 26   （4+1+80）x3 x 52 x 52
+
+4 指 box的坐标
+
+1指确信度
+
+80指80种类别（coco数据集）
+
+3指3种anchor box的 尺度
+
+
 
 ### 0x03 效果
 
